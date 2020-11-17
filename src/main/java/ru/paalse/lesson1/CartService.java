@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс описывающий корзину с продуктами
+ */
+
 @Component("cartService")
 @Scope("prototype")
 public class CartService {
@@ -35,7 +39,12 @@ public class CartService {
      * @param id
      */
     public void deleteProductFromCart(Long id){
-        cartList.remove(id);
+        for (Product p: cartList) {
+            if(p.getId() == id) {
+                cartList.remove(p);
+                break;
+            }
+        }
     }
 
     @Override

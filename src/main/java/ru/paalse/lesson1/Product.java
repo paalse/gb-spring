@@ -2,6 +2,9 @@ package ru.paalse.lesson1;
 
 import java.util.Objects;
 
+/**
+ * Класс описывающий продукт
+ */
 public class Product {
     private Long id;
     private String name;

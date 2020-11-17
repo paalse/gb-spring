@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Класс описывающий репозиторий продуктов
+ */
+
 @Component
 public class ProductRepository {
     private List<Product> productList = new ArrayList<>();
@@ -24,7 +28,7 @@ public class ProductRepository {
     }
 
     /**
-     * Получение списка продуктов
+     * Получение всего списка продуктов из репозитория
      * @return
      */
     public List<Product> findAll(){
@@ -32,16 +36,24 @@ public class ProductRepository {
     }
 
     /**
-     * Получение одного продука по id
+     * Получение одного продука по id из репозитория
      * @param id
      * @return
      */
     public Product findProductById(Long id) {
-        return productList.get(id.byteValue());
+        Product result = null;
+
+        for (Product p: productList) {
+            if (p.getId() == id) {
+                result = p;
+                break;
+            }
+        }
+        return result;
     }
 
     /**
-     * Добавить продукт
+     * Добавить продукт в репозиторий
      * @param product
      */
     public void addProduct(Product product){
