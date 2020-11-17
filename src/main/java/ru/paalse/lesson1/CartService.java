@@ -47,6 +47,14 @@ public class CartService {
         }
     }
 
+    public double sumOfProductInCart(){
+        Double result = 0.0;
+        for (Product p:cartList) {
+            result += p.getPrice();
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         return "CartService{" +
